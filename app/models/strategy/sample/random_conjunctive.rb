@@ -1,4 +1,4 @@
-class Strategy::Sample::RandomConjunctive < Strategy
+class Strategy::Sample::RandomConjunctive < Strategy::Sample
 
   after_initialize :init
   def init

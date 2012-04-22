@@ -11,7 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422213625) do
+ActiveRecord::Schema.define(:version => 20120422220022) do
+
+  create_table "collect_queries", :force => true do |t|
+    t.integer  "sampled_url_id"
+    t.string   "query"
+    t.integer  "strategy_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "collect_queries", ["sampled_url_id"], :name => "index_collect_queries_on_sampled_url_id"
+  add_index "collect_queries", ["strategy_id"], :name => "index_collect_queries_on_strategy_id"
+
+  create_table "collected_matches", :force => true do |t|
+    t.integer  "collected_url_id"
+    t.boolean  "is_match"
+    t.integer  "strategy_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "collected_matches", ["collected_url_id"], :name => "index_collected_matches_on_collected_url_id"
+  add_index "collected_matches", ["strategy_id"], :name => "index_collected_matches_on_strategy_id"
+
+  create_table "collected_urls", :force => true do |t|
+    t.integer  "collect_query_id"
+    t.integer  "engine_id"
+    t.text     "url"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "collected_urls", ["collect_query_id"], :name => "index_collected_urls_on_collect_query_id"
+  add_index "collected_urls", ["engine_id"], :name => "index_collected_urls_on_engine_id"
 
   create_table "engines", :force => true do |t|
     t.string   "name"
@@ -19,6 +52,19 @@ ActiveRecord::Schema.define(:version => 20120422213625) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "sampled_urls", :force => true do |t|
+    t.integer  "engine_id"
+    t.text     "url"
+    t.string   "query"
+    t.integer  "result_number"
+    t.integer  "strategy_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "sampled_urls", ["engine_id"], :name => "index_sampled_urls_on_engine_id"
+  add_index "sampled_urls", ["strategy_id"], :name => "index_sampled_urls_on_strategy_id"
 
   create_table "strategies", :force => true do |t|
     t.string   "name"

@@ -1,4 +1,4 @@
-class Strategy::Match::Exact < Strategy
+class Strategy::Match::Exact < Strategy::Match
 
   after_initialize :init
   def init

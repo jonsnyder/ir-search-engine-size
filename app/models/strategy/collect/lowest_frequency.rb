@@ -1,4 +1,4 @@
-class Strategy::Collect::LowestFrequency < Strategy
+class Strategy::Collect::LowestFrequency < Strategy::Collect
 
   after_initialize :init
   def init
