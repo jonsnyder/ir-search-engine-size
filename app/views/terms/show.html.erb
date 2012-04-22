@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lexicon:</b>
+  <%= @term.lexicon %>
+</p>
+
+<p>
+  <b>Term:</b>
+  <%= @term.term %>
+</p>
+
+<p>
+  <b>Freq:</b>
+  <%= @term.freq %>
+</p>
+
+
+<%= link_to 'Edit', edit_term_path(@term) %> |
+<%= link_to 'Back', terms_path %>

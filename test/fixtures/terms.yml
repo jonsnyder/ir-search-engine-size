@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lexicon: 1
+  term: MyString
+  freq: 1
+
+two:
+  lexicon: 1
+  term: MyString
+  freq: 1

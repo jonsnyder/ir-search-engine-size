@@ -1,0 +1,9 @@
+development:
+  encoding: utf8
+  adapter: mysql2
+  database: search_engine_size
+  host: localhost
+  reconnect: true
+  socket: /tmp/mysql.sock
+  username: root
+
