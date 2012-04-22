@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sampled url:</b>
+  <%= @collect_query.sampled_url %>
+</p>
+
+<p>
+  <b>Query:</b>
+  <%= @collect_query.query %>
+</p>
+
+<p>
+  <b>Strategy:</b>
+  <%= @collect_query.strategy %>
+</p>
+
+
+<%= link_to 'Edit', edit_collect_query_path(@collect_query) %> |
+<%= link_to 'Back', collect_queries_path %>

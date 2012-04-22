@@ -1,0 +1,27 @@
+<h1>Listing collect_queries</h1>
+
+<table>
+  <tr>
+    <th>Sampled url</th>
+    <th>Query</th>
+    <th>Strategy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collect_queries.each do |collect_query| %>
+  <tr>
+    <td><%= collect_query.sampled_url %></td>
+    <td><%= collect_query.query %></td>
+    <td><%= collect_query.strategy %></td>
+    <td><%= link_to 'Show', collect_query %></td>
+    <td><%= link_to 'Edit', edit_collect_query_path(collect_query) %></td>
+    <td><%= link_to 'Destroy', collect_query, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Collect query', new_collect_query_path %>

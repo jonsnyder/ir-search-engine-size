@@ -1,0 +1,2 @@
+module CollectQueriesHelper
+end

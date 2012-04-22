@@ -1,0 +1,29 @@
+<%= form_for(@collect_query) do |f| %>
+  <% if @collect_query.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@collect_query.errors.count, "error") %> prohibited this collect_query from being saved:</h2>
+
+      <ul>
+      <% @collect_query.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sampled_url %><br />
+    <%= f.text_field :sampled_url %>
+  </div>
+  <div class="field">
+    <%= f.label :query %><br />
+    <%= f.text_field :query %>
+  </div>
+  <div class="field">
+    <%= f.label :strategy %><br />
+    <%= f.text_field :strategy %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,4 +1,6 @@
 SearchEngineSize::Application.routes.draw do
+  resources :collect_queries
+
   resources :sampled_urls
 
   resources :strategies
