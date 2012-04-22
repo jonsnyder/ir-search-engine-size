@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Engine:</b>
+  <%= @sampled_url.engine %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @sampled_url.url %>
+</p>
+
+<p>
+  <b>Query:</b>
+  <%= @sampled_url.query %>
+</p>
+
+<p>
+  <b>Result number:</b>
+  <%= @sampled_url.result_number %>
+</p>
+
+<p>
+  <b>Strategy:</b>
+  <%= @sampled_url.strategy %>
+</p>
+
+
+<%= link_to 'Edit', edit_sampled_url_path(@sampled_url) %> |
+<%= link_to 'Back', sampled_urls_path %>

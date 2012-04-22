@@ -1,0 +1,2 @@
+module SampledUrlsHelper
+end

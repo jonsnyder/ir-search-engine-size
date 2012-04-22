@@ -1,0 +1,31 @@
+<h1>Listing sampled_urls</h1>
+
+<table>
+  <tr>
+    <th>Engine</th>
+    <th>Url</th>
+    <th>Query</th>
+    <th>Result number</th>
+    <th>Strategy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sampled_urls.each do |sampled_url| %>
+  <tr>
+    <td><%= sampled_url.engine %></td>
+    <td><%= sampled_url.url %></td>
+    <td><%= sampled_url.query %></td>
+    <td><%= sampled_url.result_number %></td>
+    <td><%= sampled_url.strategy %></td>
+    <td><%= link_to 'Show', sampled_url %></td>
+    <td><%= link_to 'Edit', edit_sampled_url_path(sampled_url) %></td>
+    <td><%= link_to 'Destroy', sampled_url, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Sampled url', new_sampled_url_path %>

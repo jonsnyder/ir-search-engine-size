@@ -1,4 +1,4 @@
-class Strategy::Sample::RandomConjuctive < Strategy
+class Strategy::Sample::RandomConjunctive < Strategy
 
   after_initialize :init
   def init
@@ -6,7 +6,8 @@ class Strategy::Sample::RandomConjuctive < Strategy
     options[:freq_lower] ||= 10000
     options[:freq_upper] ||= 20000
     options[:results_size] ||= 100
-    self.name = "Conjunctive query of size #{options[:query_size]} from terms in the frequency range of #{options[:freq_lower]} to #{options[:freq_upper]} and a random result from the top #{options[:results_size]}"
+
+    self.name ||= "Conjunctive query of size #{options[:query_size]} from terms in the frequency range of #{options[:freq_lower]} to #{options[:freq_upper]} and a random result from the top #{options[:results_size]}"
   end
 
   def sample( engine)

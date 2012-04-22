@@ -1,0 +1,37 @@
+<%= form_for(@sampled_url) do |f| %>
+  <% if @sampled_url.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sampled_url.errors.count, "error") %> prohibited this sampled_url from being saved:</h2>
+
+      <ul>
+      <% @sampled_url.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :engine %><br />
+    <%= f.text_field :engine %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_area :url %>
+  </div>
+  <div class="field">
+    <%= f.label :query %><br />
+    <%= f.text_field :query %>
+  </div>
+  <div class="field">
+    <%= f.label :result_number %><br />
+    <%= f.number_field :result_number %>
+  </div>
+  <div class="field">
+    <%= f.label :strategy %><br />
+    <%= f.text_field :strategy %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

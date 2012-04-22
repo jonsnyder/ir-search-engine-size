@@ -11,11 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422053222) do
+ActiveRecord::Schema.define(:version => 20120422213625) do
 
   create_table "engines", :force => true do |t|
     t.string   "name"
     t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "strategies", :force => true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.text     "options"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -26,6 +34,5 @@ ActiveRecord::Schema.define(:version => 20120422053222) do
   end
 
   add_index "terms", ["freq"], :name => "index_terms_on_freq"
-  add_index "terms", ["term"], :name => "index_terms_on_term"
 
 end
