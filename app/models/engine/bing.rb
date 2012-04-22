@@ -1,5 +1,9 @@
 class Engine::Bing < Engine
 
+  after_initialize :init
+  def init
+    self.name ||= "Bing"
+  end
 
   def search( query, page = 1)
 

@@ -1,5 +1,9 @@
 class Engine::Ask < Engine
 
+  after_initialize :init
+  def init
+    self.name ||= "Ask"
+  end
 
   def search( query, page = 1)
 

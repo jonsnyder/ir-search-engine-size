@@ -1,13 +1,23 @@
 class Analysis::Stats
   extend ActiveSupport::Memoizable
   
+  def initialize( sample_strategy, collect_strategy, match_strategy)
+    @sample_strategy = sample_strategy
+    @collect_strategy = collect_strategy
+    @match_strategy = match_strategy
+  end
+  
   def sampled( a)
-    SampledUrls.where( :engine => a).count
+    SampledUrls.where( :engine => a, :sample_strategy => @sample_strategy).
+      collect_queries.where( :collect_strategy => @collect_strategy).count
   end
   memoize :sampled
 
   def matching_collected_urls( a, b)
-    SampledUrls.where( :engine => a).collect_queries.collected_urls.where( :engine => b, :is_match => true).count
+    SampledUrls.where( :engine => a, :sample_strategy => @sample_strategy).
+      collect_queries.where( :collect_strategy => @collect_strategy).
+      collected_urls.where( :engine => b).group( "collected_urls.collect_queries_id").
+      collected_match.where( :is_match => true, :match_strategy => @match_strategy).count
   end
   memoize :matching_collected_urls
   

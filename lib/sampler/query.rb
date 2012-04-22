@@ -8,10 +8,11 @@ class Sampler::Query
   def sample
     query = @queries.random
     page = 1 + Random.rand(10)
-    Enumerator.new do |e|
+    urls = Enumerator.new do |e|
       @engine.search( query, page) do |url|
         e << url
       end
     end
-    
+    urls.sample
+  end
 end

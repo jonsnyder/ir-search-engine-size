@@ -9,7 +9,7 @@ namespace :googlebooks do
       ActiveRecord::Base.transaction do
         batch.each do |term, freq|
           rec = Term.find_by_term( term)
-          if rec
+          if recp
             rec.freq += freq
             rec.save
           else

@@ -1,5 +1,9 @@
 class Engine::Google < Engine
 
+  after_initialize :init
+  def init
+    self.name ||= "Google"
+  end
 
   def search( query, page = 1)
 

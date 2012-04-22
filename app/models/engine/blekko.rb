@@ -1,5 +1,9 @@
 class Engine::Blekko < Engine
 
+  after_initialize :init
+  def init
+    self.name ||= "Blekko"
+  end
 
   def search( query, page = 1)
 

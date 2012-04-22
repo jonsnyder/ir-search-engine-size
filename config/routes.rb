@@ -1,4 +1,6 @@
 SearchEngineSize::Application.routes.draw do
+  resources :strategies
+
   resources :engines
 
   resources :terms
