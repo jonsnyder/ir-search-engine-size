@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  collected_url: 
+  is_match: false
+  strategy: 
+
+two:
+  collected_url: 
+  is_match: false
+  strategy: 

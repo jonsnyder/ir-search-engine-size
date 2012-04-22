@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Collected url:</b>
+  <%= @collected_match.collected_url %>
+</p>
+
+<p>
+  <b>Is match:</b>
+  <%= @collected_match.is_match %>
+</p>
+
+<p>
+  <b>Strategy:</b>
+  <%= @collected_match.strategy %>
+</p>
+
+
+<%= link_to 'Edit', edit_collected_match_path(@collected_match) %> |
+<%= link_to 'Back', collected_matches_path %>

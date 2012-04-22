@@ -1,0 +1,27 @@
+<h1>Listing collected_matches</h1>
+
+<table>
+  <tr>
+    <th>Collected url</th>
+    <th>Is match</th>
+    <th>Strategy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collected_matches.each do |collected_match| %>
+  <tr>
+    <td><%= collected_match.collected_url %></td>
+    <td><%= collected_match.is_match %></td>
+    <td><%= collected_match.strategy %></td>
+    <td><%= link_to 'Show', collected_match %></td>
+    <td><%= link_to 'Edit', edit_collected_match_path(collected_match) %></td>
+    <td><%= link_to 'Destroy', collected_match, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Collected match', new_collected_match_path %>

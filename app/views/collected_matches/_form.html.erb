@@ -1,0 +1,29 @@
+<%= form_for(@collected_match) do |f| %>
+  <% if @collected_match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@collected_match.errors.count, "error") %> prohibited this collected_match from being saved:</h2>
+
+      <ul>
+      <% @collected_match.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :collected_url %><br />
+    <%= f.text_field :collected_url %>
+  </div>
+  <div class="field">
+    <%= f.label :is_match %><br />
+    <%= f.check_box :is_match %>
+  </div>
+  <div class="field">
+    <%= f.label :strategy %><br />
+    <%= f.text_field :strategy %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
