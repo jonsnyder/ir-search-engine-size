@@ -1,4 +1,4 @@
-class Engine::Bing
+class Engine::Bing < Engine
 
 
   def search( query, page = 1)

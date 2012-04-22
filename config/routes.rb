@@ -1,4 +1,6 @@
 SearchEngineSize::Application.routes.draw do
+  resources :engines
+
   resources :terms
 
   # The priority is based upon order of creation:

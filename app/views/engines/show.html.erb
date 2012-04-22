@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @engine.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @engine.type %>
+</p>
+
+
+<%= link_to 'Edit', edit_engine_path(@engine) %> |
+<%= link_to 'Back', engines_path %>
