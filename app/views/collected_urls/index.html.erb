@@ -1,0 +1,27 @@
+<h1>Listing collected_urls</h1>
+
+<table>
+  <tr>
+    <th>Collect query</th>
+    <th>Engine</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @collected_urls.each do |collected_url| %>
+  <tr>
+    <td><%= collected_url.collect_query %></td>
+    <td><%= collected_url.engine %></td>
+    <td><%= collected_url.url %></td>
+    <td><%= link_to 'Show', collected_url %></td>
+    <td><%= link_to 'Edit', edit_collected_url_path(collected_url) %></td>
+    <td><%= link_to 'Destroy', collected_url, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Collected url', new_collected_url_path %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Collect query:</b>
+  <%= @collected_url.collect_query %>
+</p>
+
+<p>
+  <b>Engine:</b>
+  <%= @collected_url.engine %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @collected_url.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_collected_url_path(@collected_url) %> |
+<%= link_to 'Back', collected_urls_path %>
