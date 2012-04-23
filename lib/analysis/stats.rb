@@ -8,16 +8,23 @@ class Analysis::Stats
   end
   
   def sampled( a)
-    SampledUrls.where( :engine => a, :sample_strategy => @sample_strategy).
-      collect_queries.where( :collect_strategy => @collect_strategy).count
+    CollectQuery
+      .includes( :sampled_url)
+      .where( :collect_queries => { :engine_id => a.id, :strategy_id => @collect_strategy.id},
+              :sampled_urls => { :strategy_id => @sample_strategy.id})
+      .count
   end
   memoize :sampled
 
   def matching_collected_urls( a, b)
-    SampledUrls.where( :engine => a, :sample_strategy => @sample_strategy).
-      collect_queries.where( :collect_strategy => @collect_strategy).
-      collected_urls.where( :engine => b).group( "collected_urls.collect_queries_id").
-      collected_match.where( :is_match => true, :match_strategy => @match_strategy).count
+    CollectedMatch
+      .includes( :collected_urls => { :collect_queries => [ :sampled_urls ] })
+      .where( :sampled_urls => { :engine_id => a.id, :strategy_id => @sample_strategy.id},
+              :collect_queries => { :strategy_id => @collect_strategy.id},
+              :collected_urls => { :engine_id => b.id },
+              :collected_matches => { :is_match => true, :strategy_id => @match_strategy.id})
+      .group( "collect_queries.id, collected_matches.is_match")
+      .count
   end
   memoize :matching_collected_urls
   

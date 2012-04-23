@@ -11,25 +11,42 @@ class Strategy::Sample::RandomConjunctive < Strategy::Sample
   end
 
   def sample( engine)
-    term_generator = Sample::RandomTerm.new( options[:freq_lower], options[:freq_upper])
+
+    difference = options[:freq_upper] - options[:freq_lower]
+    delta = (difference / 200).to_i
+    lower = options[:freq_lower] + Random.rand(200) * delta
+    upper = lower + delta
+    
+    term_generator = Sampler::RandomTerm.new( lower, upper)
 
     query = []
     options[:query_size].times { query << term_generator.term }
     query = query.join(" ")
 
     page = 1 + Random.rand( options[:results_size] / 10)
-    urls = Enumerator.new do |e|
-      @engine.search( query, page) do |url|
-        e << url
-      end
+    urls = []
+    engine.search( query, page) do |url|
+      urls << url
     end
-    i = Random.rand( urls.length)
+    i = Random.rand( urls.size)
     url = urls[i]
 
-    SampledUrl.create( :engine => @engine,
+    if url.blank?
+      raise "Blank URL"
+    end
+
+    agent = Mechanize.new
+    head = agent.head url
+    if !(head.is_a? Mechanize::Page) || head.content_type != "text/html"
+      raise "Not Text/HTML Content"
+    end
+    
+    SampledUrl.create( :engine => engine,
                        :url => url,
                        :query => query,
                        :result_number => (page-1)*10 + i + 1,
                        :strategy => self)
+  rescue
+    retry  
   end
 end

@@ -23,8 +23,11 @@ class Checking::TextHandler < Nokogiri::XML::SAX::Document
 
   def characters( string)
     if @inside_body
-      string.scan(/\b[a-zA-Z]+\b/) do |word|
-        @words[word.downcase] = true
+      begin
+        string.scan(/\b[a-zA-Z]+\b/) do |word|
+          @words[word.downcase] = true
+        end
+      rescue
       end
     end
   end

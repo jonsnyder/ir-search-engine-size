@@ -12,7 +12,7 @@ class Strategy::Collect::LowestFrequency < Strategy::Collect
     f = Checking::Fingerprint.new( options[:query_size])
     query = f.top_words( words).join(" ")
     
-    collected_query = sampled_url.collected_queries.create( :query => query, :strategy => self)
+    collected_query = sampled_url.collect_queries.create( :query => query, :strategy => self)
     
     engines.each do |engine|
       engine.search( query) do |url|

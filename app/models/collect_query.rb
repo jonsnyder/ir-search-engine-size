@@ -3,5 +3,5 @@ class CollectQuery < ActiveRecord::Base
   belongs_to :strategy
   has_many :collected_urls
   
-  attr_accessible :query
+  attr_accessible :query, :strategy
 end
