@@ -1,4 +1,6 @@
 SearchEngineSize::Application.routes.draw do
+  resources :experiments
+
   resources :collected_matches
 
   resources :collected_urls

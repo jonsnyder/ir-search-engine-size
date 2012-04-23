@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  sample_strategy: 
+  collect_strategy: 
+  match_strategy: 
+
+two:
+  name: MyString
+  sample_strategy: 
+  collect_strategy: 
+  match_strategy: 

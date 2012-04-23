@@ -1,0 +1,29 @@
+<h1>Listing experiments</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sample strategy</th>
+    <th>Collect strategy</th>
+    <th>Match strategy</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @experiments.each do |experiment| %>
+  <tr>
+    <td><%= experiment.name %></td>
+    <td><%= experiment.sample_strategy %></td>
+    <td><%= experiment.collect_strategy %></td>
+    <td><%= experiment.match_strategy %></td>
+    <td><%= link_to 'Show', experiment %></td>
+    <td><%= link_to 'Edit', edit_experiment_path(experiment) %></td>
+    <td><%= link_to 'Destroy', experiment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Experiment', new_experiment_path %>

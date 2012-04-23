@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @experiment.name %>
+</p>
+
+<p>
+  <b>Sample strategy:</b>
+  <%= @experiment.sample_strategy %>
+</p>
+
+<p>
+  <b>Collect strategy:</b>
+  <%= @experiment.collect_strategy %>
+</p>
+
+<p>
+  <b>Match strategy:</b>
+  <%= @experiment.match_strategy %>
+</p>
+
+
+<%= link_to 'Edit', edit_experiment_path(@experiment) %> |
+<%= link_to 'Back', experiments_path %>
